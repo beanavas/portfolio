@@ -5,11 +5,11 @@ export default function Document() {
     <Html>
       <Head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
           rel="stylesheet"
         />
       </Head>
-      <body className="font-poppins">
+      <body>
         <Main />
         <NextScript />
       </body>
