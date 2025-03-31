@@ -3,7 +3,6 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Gidole&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-
 @font-face {
   font-family: "Nunito";
 }
@@ -31,6 +30,106 @@ a {
   font-size: 6rem;
   color: pink;
 
+}
+/* Nav Bar */
+
+.Resume{
+  padding: 10px;
+  background-color: pink;
+  border-radius: 10px;
+  padding-left: 15px;
+  color:white;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+}
+.navbar {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  gap: 1em;
+  background-color: pink;
+  border-radius: 30px;
+  padding: 10px;
+  padding-left: 5px;
+  padding-right: 5px;                 
+}
+
+a.hoverable {
+  display: inline-flex;           /* Use flexbox for centering */
+  justify-content: center;        /* Center horizontally */
+  align-items: center;            /* Center vertically */
+  width: 80px;                   /* Fixed width (adjust as needed) */
+  height: 40px;                   /* Fixed height (adjust as needed) */
+  text-align: center;             /* Ensure text is centered */
+  text-decoration: none;          /* Remove underline from links */
+  color: white;                 /* Inherit text color from parent */
+  position: relative;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.hoverable:before {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+  transition-duration: 0.3s;
+  transition-property: transform, opacity;
+}
+
+.hoverable:hover,
+.hoverable:active,
+.hoverable:focus {
+  transform: translateY(-5px);
+}
+
+.hoverable:hover:before,
+.hoverable:active:before,
+.hoverable:focus:before {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+@keyframes bounce-animation {
+  16.65% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  33.3% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+  49.95% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  66.6% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.bounce {
+  animation-name: bounce-animation;
+  animation-duration: 2s;
 }
 
 /* About */
@@ -101,3 +200,26 @@ a {
 
 }
 
+/* Projects */
+
+.containers{
+  background-color: pink;
+  padding: 1.5rem;         
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.cbutton{
+  color: pink;   
+  background-color: white;
+  padding-top: 0.5rem;       /* py-2 */
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;        /* px-4 */
+  padding-right: 1rem;
+  border-radius: 0.25rem;
+}
+
+.skills{
+  margin-bottom: 1rem;
+  color: white;
+}
