@@ -1,20 +1,5 @@
 import Head from "next/head";
-import {
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-  AiFillYoutube,
-} from "react-icons/ai";
 import { useEffect, useState } from "react";
-import deved from "../public/dev-ed-wave.png";
-import design from "../public/design.png";
-import consulting from "../public/consulting.png";
-import Image from "next/image";
-import web1 from "../public/web1.png";
-import web2 from "../public/web2.png";
-import web3 from "../public/web3.png";
-import web4 from "../public/web4.png";
-import web5 from "../public/web5.png";
-import web6 from "../public/web6.png";
 import Navbar from "./components/NavBar";
 import Intro from "./components/Intro";
 import About from "./components/About";
@@ -25,17 +10,28 @@ import CursorBubble from "./components/CursorBubble";
 import Loader from "./components/Loader";
 import dynamic from 'next/dynamic';
 const ChatBot = dynamic(() => import("./components/ChatBot"), { ssr: false });
-
+import InvolvementSection from "./components/Involvement";
 
 export default function Home() {
 
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
+
+    if(typeof window !== "undefined") {
+
+      setIsMobile(window.innerWidth <= 768);
+
+      const handleResize = () => setIsMobile(window.innerWidth <= 768);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    
+    }
   }, []);
-  
+
   if(loading){
     return(
       <Loader />
@@ -43,7 +39,6 @@ export default function Home() {
   }
   return (
     <div className={darkMode ? "dark" : ""}>
-      <CursorBubble />
     <Head>
         <title>Beatriz's Portfolio</title>
         <meta name="description" content="Generated Beatriz Navas" />
@@ -53,6 +48,8 @@ export default function Home() {
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
 />
       </Head>
+      {/* Only render CursorBubble if not mobile */}
+      { !isMobile && <CursorBubble />}
       <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40">
 
         <section id="Home" className="min-h-screen">
@@ -65,7 +62,7 @@ export default function Home() {
           </a>
         </section>
         <ChatBot />
-        <section id="About">
+        <section id="About" className=" mt-5 mb-80 ">
           <About />
           <a href="#Experience" className="justify-center items-center">
           <button className=" px-6 py-2 bg-[#FFC1CB] text-white rounded-full hover:scale-105 transition text-center">
@@ -85,10 +82,20 @@ export default function Home() {
 
         <section id="Projects">
           <Projects />
+          <a href="#Involvement" className="justify-center items-center">
+          <button className=" px-6 py-2 bg-[#FFC1CB] text-white rounded-full hover:scale-105 transition text-center">
+            ↓ Involvement
+          </button>
+        </a>
         </section>
         
+        <section id="Involvement" className="flex justify-center mt-80 mb-80">
+          <InvolvementSection />
+        </section>
+
+
         <section className="mt-20">
-        <Footer />
+        <Footer className="w-full bg-[#FFC1CB] text-white py-6"/>
         </section>
         
       </main>

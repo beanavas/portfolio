@@ -36,16 +36,7 @@ html {
   scroll-behavior: smooth;
 }
 
-.Resume{
-  padding: 10px;
-  background-color: pink;
-  border-radius: 10px;
-  padding-left: 15px;
-  color:white;
-  text-decoration: none;
-  text-align: center;
-  justify-content: center;
-}
+
 .navbar {
   display: flex;
   justify-content: center; 
@@ -53,7 +44,7 @@ html {
   gap: 1em;
   background-color: pink;
   border-radius: 30px;
-  padding: 10px !important;
+  padding: 15px !important;
   border-radius: 45px;
   padding-left: 5px;
   padding-right: 10px;                 
@@ -103,33 +94,13 @@ a.hoverable {
   opacity: 1;
   transform: translateY(-5px);
 }
-
-@keyframes bounce-animation {
-  16.65% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  33.3% {
-    -webkit-transform: translateY(-6px);
-    transform: translateY(-6px);
-  }
-  49.95% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-  66.6% {
-    -webkit-transform: translateY(-2px);
-    transform: translateY(-2px);
-  }
-  83.25% {
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+@media (max-width: 768px) {
+  a.hoverable {
+    width: auto !important; /* Let the link adjust to its container */
   }
 }
+
+
 
 .bounce {
   animation-name: bounce-animation;
@@ -148,26 +119,6 @@ a.hoverable {
   background-image: var(--section-background-color);
 }
 
-.tech-icons {
-  font-size: 4.5em;
-  margin: 15px;
-  padding: 10px;
-  opacity: 0.93;
-  border: 1.7px solid pink;
-  vertical-align: middle;
-  text-align: center;
-  border-radius: 5px;
-  display: table;
-  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137);
-  overflow: hidden;
-  transition: all 0.4s ease 0s;
-}
-
-@media (max-width: 767px) {
-  .tech-icons {
-    margin: 10px;
-  }
-}
 
 .tech-icons:hover {
   transform: scale(1.05);

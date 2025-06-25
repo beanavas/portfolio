@@ -49,7 +49,7 @@ const ChatBot = () => {
     <div className="fixed bottom-4 right-4 z-50 w-80 bg-white border border-pink-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
       {/* Header */}
       <div className="flex justify-between items-center px-4 py-2 bg-pink-200 text-pink-900 font-semibold rounded-t-2xl">
-        <span>💬 Chat with us!</span>
+        <span>💬 Chat with me!</span>
         <button onClick={() => setOpen(false)} className="hover:text-pink-600">
           <X size={18} />
         </button>
