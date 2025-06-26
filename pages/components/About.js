@@ -47,23 +47,18 @@ export default function About({ darkMode, toggleDarkMode }) {
         {/* Right Column: Larger Profile Image */}
         <div className="flex justify-center md:justify-end">
           <div className="
-              relative 
-              w-48 h-48        /* mobile: 192×192 */
-              sm:w-64 sm:h-64   /* small tablets: 256×256 */
-              md:w-72 md:h-72   /* desktops: 288×288 */
-              lg:w-80 lg:h-80   /* large screens: 320×320 */
-              rounded-full 
-              overflow-hidden 
-              border-4 sm:border-8 
-              border-[#FFC1CB]
-            ">
-            <Image
-              src={mepic}
-              alt="Beatriz Navas"
-              fill
-              className="object-cover"
-            />
-          </div>
+  relative w-48 h-48
+  sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80
+  rounded-full overflow-hidden
+  border-4 sm:border-8 border-[#FFC1CB]
+">
+  <img
+    src="/mepic.png"
+    alt="Beatriz Navas"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+</div>
+
         </div>
 
       </div>
