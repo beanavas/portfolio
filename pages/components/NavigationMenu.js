@@ -44,14 +44,14 @@ export default function NavigationMenu({ darkMode, toggleDarkMode }) {
           Involvement
         </a>
       </li>
-	  <li>
+	  {/* <li>
         <a 
           href="Beatriz.Navas.Resume25.pdf" 
           className="block text-center text-white hover:text-[#FFC1CB] transition-colors"
         >
           Resume
         </a>
-      </li>
+      </li> */}
     </ul>
 		</div> 
 	);

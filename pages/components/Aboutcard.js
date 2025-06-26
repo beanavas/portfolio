@@ -30,10 +30,6 @@ export default function Aboutcard ({ darkMode, toggleDarkMode }){
               <ImPointRight /> Going to the beach
             </li>
           </ul>
-          <p>
-            One of my favorite quotes is: 
-            "Growth and comfort do not coexist"{" "}
-          </p>
           <footer className="blockquote-footer">Ginni Rometty</footer>
         </blockquote>
       </Card.Body>

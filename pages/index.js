@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <div className={darkMode ? "dark" : ""}>
     <Head>
-        <title>Beatriz's Portfolio</title>
+        <title>Beatriz&apos;s Portfolio</title>
         <meta name="description" content="Generated Beatriz Navas" />
         <link rel="icon" href="/icon_JJq_2.ico" />
         <link
