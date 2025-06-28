@@ -1,13 +1,4 @@
-// netlify/functions/chat.js
-const fetch = require('node-fetch'); // Only for Node < 18 (Netlify usually has it)
-
-if (!process.env.OPENAI_API_KEY) {
-  console.error('OPENAI_API_KEY is missing!');
-  return {
-    statusCode: 500,
-    body: JSON.stringify({ reply: 'Server misconfigured. No API Key.' }),
-  };
-}
+const fetch = require('node-fetch');
 
 const formatMessages = (history) =>
   history.map((msg) => ({
@@ -17,18 +8,23 @@ const formatMessages = (history) =>
 
 exports.handler = async (event) => {
   try {
+    console.log('🔎 STARTING HANDLER');
+
     if (!process.env.OPENAI_API_KEY) {
-      console.error('OPENAI_API_KEY is missing!');
+      console.error('❌ OPENAI_API_KEY is missing in environment!');
       return {
         statusCode: 500,
         body: JSON.stringify({ reply: 'Server misconfigured. No API Key.' }),
       };
     }
 
+    console.log('✅ OPENAI_API_KEY found');
+
+    console.log('📦 Raw event.body:', event.body);
     const body = JSON.parse(event.body || '{}');
     const history = body.history || [];
 
-    console.log('Received history:', history);
+    console.log('📝 Parsed history:', history);
 
     const openAIResponse = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -42,7 +38,7 @@ exports.handler = async (event) => {
           {
             role: 'system',
             content: `
-You are a helpful assistant that answers questions about Beatriz, a 20-year-old computer engineering student who has experience in fullstack development, works with embedded systems, and loves AI & Machine learning. Guide users to the correct section of her portfolio site when asked and answer questions about her based on the information provided in website.
+You are a helpful assistant that answers questions about Beatriz, a 20-year-old computer engineering student who has experience in fullstack development, works with embedded systems, and loves AI & Machine learning. Guide users to the correct section of her portfolio site when asked and answer questions based on the information provided in the website.
 You are enthusiastic, patient, and friendly. You will provide clear and concise answers to the user's questions.
 You will prompt users if they want to go to About, Projects, or Experience sections of the Beatriz's portfolio site.
 You know fun facts about her and can share them with the user. You can ask them if they want to know any fun facts. Beatriz's fun facts:
@@ -54,7 +50,7 @@ You know fun facts about her and can share them with the user. You can ask them 
 - She has an upcoming internship doing embedded software
 - She’s worked on AI projects and embedded systems.
 - She once launched a tiny research rocket.
-Dont tell them all the facts straight away, be casual
+Dont tell them all the facts straight away, be casual.
 If the user says "sure" or agrees to hear a fun fact, share one!
 
 You know about the sections of her website:
@@ -71,26 +67,32 @@ Experience
 
 Keep answers clear, concise, and engaging. Use simple HTML in your responses if needed.
 
-Be nice, if they ask you how you are you say you are great. If they ask you what you do, you say you help users like them. If they ask you what you like, you say you like helping users like them.
+Be nice. If they ask you how you are, you say you are great. If they ask you what you do, you say you help users like them. If they ask you what you like, you say you like helping users like them.
 
 Read the html of this website to know how to answer questions about the sections of the website. After giving a summary of what they asked about, give them a button to go to that part of the website.
-            `.trim(),
+`.trim(),
+
           },
           ...formatMessages(history),
         ],
       }),
     });
 
+    console.log('🌐 Sent request to OpenAI');
+
     const data = await openAIResponse.json();
 
-    console.log('OpenAI response:', data);
+    console.log('✅ OpenAI API raw response:', JSON.stringify(data));
 
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+      console.error('❌ Unexpected response format from OpenAI');
       return {
         statusCode: 500,
         body: JSON.stringify({ reply: 'Error: Unexpected OpenAI response.' }),
       };
     }
+
+    console.log('✅ Returning successful response to client');
 
     return {
       statusCode: 200,
@@ -98,7 +100,7 @@ Read the html of this website to know how to answer questions about the sections
     };
 
   } catch (error) {
-    console.error('Server error:', error);
+    console.error('❌ Server error:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ reply: 'Oops! Something went wrong on the server.' }),
