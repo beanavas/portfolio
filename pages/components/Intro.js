@@ -1,6 +1,7 @@
 import {
   AiFillGithub,
-  AiFillLinkedin
+  AiFillLinkedin,
+  AiFillMail
 } from "react-icons/ai";
 
 export default function Intro({ darkMode, toggleDarkMode }) {
@@ -38,6 +39,12 @@ export default function Intro({ darkMode, toggleDarkMode }) {
           className="hover:scale-110 transition"
         >
           <AiFillLinkedin style={{ color: "pink" }} />
+        </a>
+        <a
+          href="mailto:beanavasaguilera@gmail.com"
+          className="hover:scale-110 transition"
+        >
+          <AiFillMail style={{ color: "pink" }} />
         </a>
       </div>
     </div>

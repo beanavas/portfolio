@@ -11,26 +11,29 @@ const defaultExperiences = [
     description:
       "In progress. Will update soon!",
     image: "/dhvtech.png",
+    
   },
   {
     id: 2,
     title: "Full-Stack Developer Intern",
-    company: "Biznaga Media Inc.",
+    company: "Biznaga Media LLC",
     dates: "Jan 2025 - May 2025",
     description:
       "Contributed to the development of interactive 3D mobile advertisements for high-profile clients by combining creative design with technical expertise. Built responsive front-end interfaces using HTML, JavaScript, and Three.js, integrating real-time 3D animations to enhance user engagement across multiple campaigns. Supported the implementation of machine learning techniques to enable dynamic and interactive experiences in pilot projects. Ensured smooth performance and cross-device compatibility through rigorous debugging and optimization.",
     image:
       "/biznagapic.png",
+    tools: ["Python", "Machine Learning", "Data Analytics", "Scrum"],
   },
   {
     id: 3,
     title: "Software Engineering Intern",
-    company: "Biznaga Media Inc.",
+    company: "Biznaga Media LLC",
     dates: "May 2023 - August 2023",
     description:
       "Collaborated within a cross-functional team of five to refine and evaluate over 20 creative proposals, ensuring each aligned with full-stack design best practices and was technically feasible within the MERN stack. Played a key role in managing client analytics for live-streamed advertisements by integrating robust data pipelines using SQL and Node.js. Additionally, contributed to Agile Scrum workflows by integrating dynamic React front-end components with Node.js, Express, and MongoDB back-end systems, ultimately delivering a scalable and responsive web application.",
     image:
       "/biznagapic.png",
+    tools: ["React", "Node.js", "Express", "PostgreSQL", "Scrum", "Postman"],
   },
 ];
 
@@ -101,6 +104,19 @@ const ExperienceComponent = ({ experiences = [] }) => {
                 {exp.description}
               </p>
             </div>
+            {exp.tools && exp.tools.length > 0 && (
+  <div className="flex flex-wrap justify-center gap-2 mt-3">
+    {exp.tools.map((tool) => (
+      <span
+        key={tool}
+        className="bg-[#C1C1C1] text-white text-xs px-2 py-1 rounded-full"
+      >
+        {tool}
+      </span>
+    ))}
+  </div>
+)}
+
           </details>
         ))}
       </div>
@@ -156,6 +172,18 @@ const ExperienceComponent = ({ experiences = [] }) => {
             <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
               {selected.description}
             </p>
+            {selected.tools && selected.tools.length > 0 && (
+              <div className="flex flex-wrap justify-center gap-3 mt-4">
+                {selected.tools.map((tool) => (
+                <span
+                  key={tool}
+                  className="bg-[#C1C1C1] text-white text-sm sm:text-base px-3 py-1.5 rounded-full hover:scale-105 transition"
+                >
+                {tool}
+                </span>
+              ))}
+              </div>
+)}
           </div>
         ) : (
           <div className="w-2/3 flex items-center justify-center text-gray-400">
