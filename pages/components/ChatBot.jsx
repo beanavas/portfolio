@@ -7,8 +7,7 @@ const ChatBot = () => {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(true); // Starts closed
-
+  const [open, setOpen] = useState(false); // Starts closed
   const sendMessage = async () => {
     if (!input.trim()) return;
 
@@ -61,7 +60,7 @@ const ChatBot = () => {
       <div className="flex justify-between items-center px-4 py-2 bg-pink-200 text-pink-900 font-semibold rounded-t-2xl">
         <span>💬 Chat with me!</span>
         <button
-          onClick={() => setOpen(true)}
+          onClick={() => setOpen(false)}
           className="hover:text-pink-600"
         >
           <X size={18} />

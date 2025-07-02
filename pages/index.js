@@ -50,7 +50,8 @@ export default function Home() {
       </Head>
       {/* Only render CursorBubble if not mobile */}
       { !isMobile && <CursorBubble />}
-      <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40">
+        <main className="max-w-3xl w-full mx-auto px-4 sm:px-6 md:px-10 lg:px-20 dark:bg-gray-900 bg-white">
+
 
         <section id="Home" className="min-h-screen">
           <Navbar darkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />

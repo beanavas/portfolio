@@ -84,13 +84,22 @@ Read the html of this website to know how to answer questions about the sections
 
     console.log('✅ OpenAI API raw response:', JSON.stringify(data));
 
-    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-      console.error('❌ Unexpected response format from OpenAI');
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ reply: 'Error: Unexpected OpenAI response.' }),
-      };
-    }
+if (data.error) {
+  console.error('❌ OpenAI returned error:', data.error);
+  return {
+    statusCode: 500,
+    body: JSON.stringify({ reply: `OpenAI Error: ${data.error.message}` }),
+  };
+}
+
+if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+  console.error('❌ Unexpected response format from OpenAI');
+  return {
+    statusCode: 500,
+    body: JSON.stringify({ reply: 'Error: Unexpected OpenAI response.' }),
+  };
+}
+
 
     console.log('✅ Returning successful response to client');
 
