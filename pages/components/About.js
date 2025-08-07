@@ -1,13 +1,12 @@
 import Image from "next/image";
 import mepic from "../../public/mepic.png";
-
 export default function About({ darkMode, toggleDarkMode }) {
   return (
     <section
       id="About"
-      className=" min-h-screen flex items-center justify-center px-4 py-5"
+      className="min-h-screen px-4 py-10 md:py-20 flex items-center"
     >
-      <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+      <div className="mx-auto w-full max-w-screen-xl grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
 
         {/* Left Column: Text Content */}
         <div className="flex flex-col justify-center space-y-4">
@@ -32,7 +31,7 @@ export default function About({ darkMode, toggleDarkMode }) {
           </p>
 
           {/* Hobbies */}
-          <div className="flex flex-wrap justify-center gap-3 mt-2">
+          <div className="flex flex-wrap gap-3 mt-2">
             {["Cooking", "Traveling", "Playing the piano"].map((hobby) => (
               <button
                 key={hobby}
@@ -44,21 +43,20 @@ export default function About({ darkMode, toggleDarkMode }) {
           </div>
         </div>
 
-        {/* Right Column: Larger Profile Image */}
-        <div className="flex justify-center md:justify-end">
+        {/* Right Column: Profile Image */}
+        <div className="flex justify-center md:justify-end items-center">
           <div className="
-  relative w-48 h-48
-  sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80
-  rounded-full overflow-hidden
-  border-4 sm:border-8 border-[#FFC1CB]
-">
-  <img
-    src="/mepic.png"
-    alt="Beatriz Navas"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
-</div>
-
+            relative w-48 h-48
+            sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80
+            rounded-full overflow-hidden
+            border-4 sm:border-8 border-[#FFC1CB]
+          ">
+            <img
+              src="/mepic.png"
+              alt="Beatriz Navas"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
         </div>
 
       </div>

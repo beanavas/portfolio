@@ -7,11 +7,19 @@
   font-family: "Nunito";
 }
 
+html,
 body {
+  background-color: white;
   padding: 0;
   margin: 0;
   font-family: 'Nunito', sans-serif;
 }
+
+html.dark body {
+  background-color: #111827; /* Tailwind's gray-900 */
+  color: white;
+}
+
 
 a {
   color: inherit;

@@ -114,12 +114,12 @@ export default function Projects() {
 
   <div className="relative flex items-center">
     {/* Arrow Left */}
-    <button
-      onClick={goToPrevSlide}
-      className="absolute top-1/2 -translate-y-1/2 -left-12 sm:-left-40 z-10 bg-white p-1 sm:p-2 rounded-full shadow"
-    >
-      <i className="fas fa-chevron-left text-gray-700 text-lg" />
-    </button>
+<button
+  onClick={goToPrevSlide}
+  className="hidden sm:block absolute top-1/2 -translate-y-1/2 -left-12 sm:-left-40 z-10 bg-white p-1 sm:p-2 rounded-full shadow"
+>
+  <i className="fas fa-chevron-left text-gray-700 text-lg" />
+</button>
 
     {/* Cards Row: extra padding left/right to clear the arrows */}
     <div className="flex justify-center items-stretch w-full gap-4 pl-12 pr-12 sm:pl-16 sm:pr-16">
@@ -160,12 +160,12 @@ export default function Projects() {
     </div>
 
     {/* Arrow Right */}
-    <button
-      onClick={goToNextSlide}
-      className="absolute top-1/2 -translate-y-1/2 -right-12 sm:-right-40 z-10 bg-white p-1 sm:p-2 rounded-full shadow"
-    >
-      <i className="fas fa-chevron-right text-gray-700 text-lg" />
-    </button>
+<button
+  onClick={goToNextSlide}
+  className="hidden sm:block absolute top-1/2 -translate-y-1/2 -right-12 sm:-right-40 z-10 bg-white p-1 sm:p-2 rounded-full shadow"
+>
+  <i className="fas fa-chevron-right text-gray-700 text-lg" />
+</button>
   </div>
 </section>
   );

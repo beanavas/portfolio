@@ -32,13 +32,23 @@ export default function Home() {
     }
   }, []);
 
+  useEffect(() => {
+  if (typeof window !== "undefined") {
+    if (darkMode) {
+      document.documentElement.classList.add("dark"); // Apply to <html>
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }
+}, [darkMode]);
+
   if(loading){
     return(
       <Loader />
     )
   }
   return (
-    <div className={darkMode ? "dark" : ""}>
+    <div>
     <Head>
         <title>Beatriz&apos;s Portfolio</title>
         <meta name="description" content="Generated Beatriz Navas" />
@@ -50,8 +60,7 @@ export default function Home() {
       </Head>
       {/* Only render CursorBubble if not mobile */}
       { !isMobile && <CursorBubble />}
-        <main className="max-w-3xl w-full mx-auto px-4 sm:px-6 md:px-10 lg:px-20 dark:bg-gray-900 bg-white">
-
+        <main className="w-full max-w-screen-xl mx-auto px-6 sm:px-8 md:px-12 lg:px-20 xl:px-28 dark:bg-gray-900 bg-white">
 
         <section id="Home" className="min-h-screen">
           <Navbar darkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
@@ -63,16 +72,16 @@ export default function Home() {
           </a>
         </section>
         <ChatBot />
-        <section id="About" className=" mt-5 mb-80 ">
+        <section id="About" className="mt-80 mb-80">
           <About />
-          <a href="#Experience" className="justify-center items-center">
+          <a href="#Experience" className="mt-80 mb-80 justify-center items-center">
           <button className=" px-6 py-2 bg-[#FFC1CB] text-white rounded-full hover:scale-105 transition text-center">
             ↓ Experience
           </button>
         </a>
         </section>
 
-        <section id="Experience" className=" mt-80 mb-80 ">
+        <section id="Experience" className="mt-80 mb-80">
         <Experience />
         <a href="#Projects" className=" mt-80 mb-80 ">
           <button className=" px-6 py-2 bg-[#FFC1CB] text-white rounded-full hover:scale-105 transition text-center">
