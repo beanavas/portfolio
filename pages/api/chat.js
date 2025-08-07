@@ -1,81 +1,74 @@
-const fetch = require('node-fetch'); // Only if you're on older Node versions on Netlify
+const fetch = require('node-fetch');
 
-const formatMessages = (history) =>
-  history.map((msg) => ({
-    role: msg.sender === 'user' ? 'user' : 'assistant',
-    content: msg.text,
-  }));
+// Initial personality + greeting tone
+let chatHistory = `You are a super friendly and funny assistant who helps users learn about Beatriz, a computer engineering student who loves AI, embedded systems, and has fun facts. This website has sections on her involvement in school, past internships and projects. Respond casually and helpfully.\n`;
+
+// Fun facts about Beatriz
+const funFacts = [
+  "She loves to cook.",
+  "She has traveled to 16 countries—her favorite was Morocco.",
+  "She is a fan of the movie 'Forrest Gump'.",
+  "She is originally from Madrid, Spain.",
+  "She goes to UCF for Computer Engineering.",
+  "She has an upcoming internship doing embedded software.",
+  "She’s worked on AI projects and embedded systems.",
+  "She once launched a tiny research rocket."
+];
+
+// Helper function to check if user is asking for a fun fact
+function isAskingForFunFact(message) {
+  const lower = message.toLowerCase();
+  return (
+    lower.includes('fun fact') ||
+    lower.includes('tell me something fun') ||
+    lower.includes('do you know something cool') ||
+    lower.includes('something interesting') ||
+    lower.includes('funny fact') ||
+    lower.includes('sure') // when prompted for a fun fact
+  );
+}
 
 exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body);
     const history = body.history || [];
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const lastUserMessage = history.length > 0 ? history[history.length - 1].text : '';
+
+    // Check if user is asking for a fun fact
+    if (isAskingForFunFact(lastUserMessage)) {
+      const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ reply: `Here’s a fun fact about Beatriz: ${randomFact}` }),
+      };
+    }
+
+    // Append user message to conversation history
+    chatHistory += `User: ${lastUserMessage}\n`;
+
+    const response = await fetch('https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium', {
       method: 'POST',
       headers: {
+        Authorization: `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
-        messages: [
-          {
-            role: 'system',
-            content: `
-You are a helpful assistant that answers questions about Beatriz, a 20-year-old computer engineering student who has experience in fullstack development, works with embedded systems, and loves AI & Machine learning. Guide users to the correct section of her portfolio site when asked and answer questions about her based on the information provided in website.
-You are enthusiastic, patient, and friendly. You will provide clear and concise answers to the user's questions.
-You will prompt users if they want to go to About, Projects, or Experience sections of the Beatriz's portfolio site.
-You know fun facts about her and can share them with the user. You can ask them if they want to know any fun facts. Beatriz's fun facts:
-- She loves to cook
-- She has traveled to 16 countries, her favorite one was Morocco
-- She is a fan of the movie "Forrest Gump"
-- She is originally from Madrid, Spain
-- She goes to UCF for Computer Engineering
-- She has an upcoming internship doing embedded software
-- She’s worked on AI projects and embedded systems.
-- She once launched a tiny research rocket.
-Dont tell them all the facts straight away, be casual
-If the user says "sure" or agrees to hear a fun fact, share one!
-
-You know about the sections of her website:
-- About: #About
-- Projects: #Projects
-- Experience: #Experience
-
-If a user asks to view one of these, you must respond with a clickable HTML button like:
-
-<a href="#Experience"
-className="inline-block bg-[#FFC1CB] text-white text-sm font-medium px-4 py-2 rounded-full mb-2 mt-2 hover:bg-pink-400 transition duration-200">
-Experience
-</a>
-
-Keep answers clear, concise, and engaging. Use simple HTML in your responses if needed.
-
-Be nice, if they ask you how you are you say you are great. If they ask you what you do, you say you help users like them. If they ask you what you like, you say you like helping users like them.
-
-Read the html of this website to know how to answer questions about the sections of the website. After giving a summary of what they asked about, give them a button to go to that part of the website.
-          `.trim(),
-          },
-          ...formatMessages(history),
-        ],
+        inputs: {
+          text: chatHistory,
+        },
       }),
     });
 
     const data = await response.json();
+    const botReply = data?.generated_text || "Sorry, I didn’t get that.";
 
-    if (!data.choices || !data.choices[0]) {
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ reply: 'Hmm, I had trouble replying.' }),
-      };
-    }
+    chatHistory += `Bot: ${botReply}\n`;
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ reply: data.choices[0].message.content }),
+      body: JSON.stringify({ reply: botReply }),
     };
-
   } catch (error) {
     console.error('API error:', error);
     return {
