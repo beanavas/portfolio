@@ -32,7 +32,7 @@ exports.handler = async (event) => {
         Authorization: `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
     'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ inputs: { text: chatHistory } }),
+      body: JSON.stringify({ inputs: { text: history.map(m => m.text).join("\n") } }),
     });
 
     console.log('🌐 Sent request to OpenAI');
