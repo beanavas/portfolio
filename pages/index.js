@@ -9,8 +9,9 @@ import Footer from "./components/Footer";
 import CursorBubble from "./components/CursorBubble";
 import Loader from "./components/Loader";
 import dynamic from 'next/dynamic';
-const ChatBot = dynamic(() => import("./components/ChatBot"), { ssr: false });
+const WebLLMChat = dynamic(() => import('./components/WebLLMChat'), { ssr: false });
 import InvolvementSection from "./components/Involvement";
+
 
 export default function Home() {
 
@@ -71,7 +72,7 @@ export default function Home() {
           </button>
           </a>
         </section>
-        <ChatBot />
+        <WebLLMChat/>
         <section id="About" className="mt-80 mb-80">
           <About />
           <a href="#Experience" className="mt-80 mb-80 justify-center items-center">
