@@ -72,7 +72,7 @@ export default function Home() {
           </button>
           </a>
         </section>
-        <WebLLMChat/>
+        {/* <WebLLMChat/> */}
         <section id="About" className="mt-80 mb-80">
           <About />
           <a href="#Experience" className="mt-80 mb-80 justify-center items-center">
