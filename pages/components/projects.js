@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import 'tailwindcss/tailwind.css';
 //import moodtracker from "../public/calendar.png";
 
@@ -95,6 +95,49 @@ export default function Projects() {
   const totalSlides = Math.ceil(projectsData.length / cardsPerSlide);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Ensure currentSlide remains valid when cardsPerSlide changes (e.g., on resize)
+  useEffect(() => {
+    const newTotal = Math.ceil(projectsData.length / cardsPerSlide);
+    setCurrentSlide((prev) => Math.min(prev, Math.max(0, newTotal - 1)));
+  }, [cardsPerSlide]);
+
+  // Touch swipe support for mobile
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+  const lastMoveX = useRef(0);
+  const isSwiping = useRef(false);
+
+  const onTouchStart = (e) => {
+    const t = e.touches[0];
+    touchStartX.current = t.clientX;
+    touchStartY.current = t.clientY;
+    lastMoveX.current = t.clientX;
+    isSwiping.current = false;
+  };
+
+  const onTouchMove = (e) => {
+    const t = e.touches[0];
+    const dx = t.clientX - touchStartX.current;
+    const dy = t.clientY - touchStartY.current;
+    // Treat as horizontal swipe only if horizontal movement dominates
+    if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
+      isSwiping.current = true;
+      lastMoveX.current = t.clientX;
+    }
+  };
+
+  const onTouchEnd = () => {
+    if (!isSwiping.current) return;
+    const dx = lastMoveX.current - touchStartX.current;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) {
+        goToNextSlide();
+      } else {
+        goToPrevSlide();
+      }
+    }
+  };
+
   const goToPrevSlide = () =>
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
   const goToNextSlide = () =>
@@ -112,7 +155,7 @@ export default function Projects() {
   </h1>
   <h2 className="text-center text-5xl font-bold text-black mb-8 dark:text-white">Projects</h2>
 
-  <div className="relative flex items-center">
+  <div className="relative flex items-center touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
     {/* Arrow Left */}
 <button
   onClick={goToPrevSlide}

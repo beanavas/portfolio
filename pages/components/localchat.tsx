@@ -31,7 +31,7 @@ export default function LocalChat() {
     const text = input.trim();
     if (!text || !generatorRef.current) return;
     setInput('');
-    const nextMessages = [...messages, { role: 'user', text }];
+    const nextMessages = [...messages, { role: 'user' as const, text }];
     setMessages(nextMessages);
 
     // Simple chat prompt format
@@ -53,7 +53,7 @@ export default function LocalChat() {
     const i = full.lastIndexOf('Assistant:');
     const reply = (i >= 0 ? full.slice(i + 'Assistant:'.length) : full).trim();
 
-    setMessages([...nextMessages, { role: 'assistant', text: reply || '(no output)' }]);
+    setMessages([...nextMessages, { role: 'assistant' as const, text: reply || '(no output)' }]);
   }
 
   return (
