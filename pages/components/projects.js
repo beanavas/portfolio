@@ -3,6 +3,14 @@ import 'tailwindcss/tailwind.css';
 //import moodtracker from "../public/calendar.png";
 
 const projectsData = [
+    {
+    title: "This Website!",
+    image: "/website.png",
+    description:
+      "I developed a personal portfolio website to showcase my projects, technical skills, and professional experiences. Built with Next.js and styled using Tailwind CSS, the site emphasizes performance, responsiveness, and clean design across desktop and mobile devices. I integrated interactive components such as a horizontally scrollable project carousel and dynamic involvement sections.",
+    skills: "Next.js, Tailwind, CSS, HTML, JavaScript",
+    link: "https://github.com/beanavas/Gym-Buddy",
+  },
   {
     title: "Gym Buddy ",
     image: "/gymbuddy copy.png",

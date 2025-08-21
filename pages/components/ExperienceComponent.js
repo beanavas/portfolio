@@ -3,37 +3,39 @@ import Image from "next/image";
 import mepic from "../../public/mepic.png";
 
 const defaultExperiences = [
-  {
-    id: 1,
-    title: "Software Engineering Intern",
-    company: "DHV Technology",
-    dates: "May 2025 - July 2025",
-    description:
-      "In progress. Will update soon!",
-    image: "/dhvtech.png",
-    
-  },
+{
+   id: 1,
+   title: "Software Engineering Intern",
+   company: "DHV Technology",
+   dates: "May 2025 - July 2025",
+   description:
+     "During my internship, I developed automated testing tools in Python that significantly reduced manual validation time. I also ran and debugged simulation software in both C++ and Python to support system testing. In addition, I collaborated with cross-functional engineering teams to improve and unify embedded software across multiple product lines. I also contributed to the design and implementation of improvements to the company’s GitLab development environment, introducing standardized workflows and permissions through Git Bash that reduced integration issues.",
+   image: "/dhvtech.png",
+   tools: ["Python", "C++", "GitLab", "Bash", "Linux", "Firmware"],
+  
+ },
+
   {
     id: 2,
-    title: "Full-Stack Developer Intern",
+    title: "Software Engineering Intern",
     company: "Biznaga Media LLC",
     dates: "Jan 2025 - May 2025",
     description:
-      "Contributed to the development of interactive 3D mobile advertisements for high-profile clients by combining creative design with technical expertise. Built responsive front-end interfaces using HTML, JavaScript, and Three.js, integrating real-time 3D animations to enhance user engagement across multiple campaigns. Supported the implementation of machine learning techniques to enable dynamic and interactive experiences in pilot projects. Ensured smooth performance and cross-device compatibility through rigorous debugging and optimization.",
+      "I engineered a Python-based machine learning pipeline using TensorFlow, pandas, and scikit-learn to process and analyze campaign spreadsheets for over 50 marketing initiatives, delivering actionable insights and recommendations while implementing DevOps best practices. Working within a Scrum team, I helped automate the generation of branded PowerPoint presentations using python-pptx, producing more than 200 professional slide decks that included Matplotlib charts of CTR, conversion rate, and ROI—cutting manual report creation time by 75%. Additionally, I integrated an insight summarizer that highlighted the top three performing channels, detected performance anomalies, and generated actionable recommendations, which accelerated campaign optimization decisions by 15%.",
     image:
       "/biznagapic.png",
-    tools: ["Python", "Machine Learning", "Data Analytics", "Scrum"],
+    tools: ["Python", "Machine Learning", "TensorFlow", "pandas", "scikit-learn", "Data Analytics", "Scrum"],
   },
   {
     id: 3,
-    title: "Software Engineering Intern",
+    title: "Full-Stack Developer Intern",
     company: "Biznaga Media LLC",
-    dates: "May 2023 - August 2023",
+    dates: "June 2024 - August 2024",
     description:
-      "Collaborated within a cross-functional team of five to refine and evaluate over 20 creative proposals, ensuring each aligned with full-stack design best practices and was technically feasible within the MERN stack. Played a key role in managing client analytics for live-streamed advertisements by integrating robust data pipelines using SQL and Node.js. Additionally, contributed to Agile Scrum workflows by integrating dynamic React front-end components with Node.js, Express, and MongoDB back-end systems, ultimately delivering a scalable and responsive web application.",
+      "I designed and built full-stack web application components using React.js, Node.js, Express.js, and PostgreSQL in an Agile environment, delivering over 10 features that improved scalability, stability, and responsiveness. I optimized full-stack codebases to ensure consistent, high-performance operation across more than five mobile device form factors. Additionally, I collaborated with a cross-functional team of three to refine and evaluate over 20 component proposals, assessing technical feasibility, estimating development effort, and expediting project kickoffs.",
     image:
       "/biznagapic.png",
-    tools: ["React", "Node.js", "Express", "PostgreSQL", "Scrum", "Postman"],
+    tools: ["React", "Node.js", "Express", "PostgreSQL", "Scrum", "Full-Stack"],
   },
 ];
 
