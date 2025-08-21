@@ -175,13 +175,13 @@ export default function Projects() {
     {/* Arrow Left */}
 <button
   onClick={goToPrevSlide}
-  className="hidden sm:block absolute top-1/2 -translate-y-1/2 -left-12 sm:-left-40 z-10 bg-white p-1 sm:p-2 rounded-full shadow"
+  className="hidden sm:block absolute top-1/2 -translate-y-1/2 -left-4 sm:-left-8 lg:-left-10 xl:-left-14 z-10 bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow"
 >
   <i className="fas fa-chevron-left text-gray-700 text-lg" />
 </button>
 
     {/* Cards Row: extra padding left/right to clear the arrows */}
-    <div className="flex justify-center items-stretch w-full gap-4 pl-12 pr-12 sm:pl-16 sm:pr-16">
+    <div className="flex justify-center items-stretch w-full gap-4 px-10 sm:px-16 md:px-24 lg:px-32 xl:px-40">
       {getSlideData().map((project, idx) => (
         <div
           key={idx}
@@ -221,7 +221,7 @@ export default function Projects() {
     {/* Arrow Right */}
 <button
   onClick={goToNextSlide}
-  className="hidden sm:block absolute top-1/2 -translate-y-1/2 -right-12 sm:-right-40 z-10 bg-white p-1 sm:p-2 rounded-full shadow"
+  className="hidden sm:block absolute top-1/2 -translate-y-1/2 -right-4 sm:-right-8 lg:-right-10 xl:-right-14 z-10 bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow"
 >
   <i className="fas fa-chevron-right text-gray-700 text-lg" />
 </button>
