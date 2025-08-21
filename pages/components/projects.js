@@ -171,21 +171,21 @@ export default function Projects() {
     </div>
   </div>
 
-  <div className="flex items-center gap-2 sm:gap-4">
+  <div className="flex items-center justify-center gap-2 sm:gap-4 max-w-full mx-auto">
     {/* Arrow Left */}
     <button
       onClick={goToPrevSlide}
-      className="hidden sm:flex items-center justify-center bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+      className="hidden sm:flex items-center justify-center bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow flex-shrink-0"
     >
       <i className="fas fa-chevron-left text-gray-700 text-lg" />
     </button>
 
     {/* Cards Row */}
     <div
-      className="relative flex-1"
+      className="relative flex-1 max-w-full"
     >
       <div
-        className="flex justify-center items-stretch w-full gap-4 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden touch-pan-y"
+        className="flex justify-center items-stretch w-full gap-4 px-2 sm:px-4 md:px-6 lg:px-8 overflow-hidden touch-pan-y"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -195,9 +195,10 @@ export default function Projects() {
             key={idx}
             className="
               bg-white rounded-lg shadow-lg p-4 flex-shrink-0
-              w-[90vw]
-              sm:w-[45vw]
-              md:w-[30vw]
+              basis-full
+              sm:basis-1/2
+              lg:basis-1/3
+              max-w-full
             "
           >
             <img
@@ -230,7 +231,7 @@ export default function Projects() {
     {/* Arrow Right */}
     <button
       onClick={goToNextSlide}
-      className="hidden sm:flex items-center justify-center bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+      className="hidden sm:flex items-center justify-center bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow flex-shrink-0"
     >
       <i className="fas fa-chevron-right text-gray-700 text-lg" />
     </button>
