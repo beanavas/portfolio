@@ -4,12 +4,24 @@ const VisitorCount = () => {
   const [count, setCount] = useState(52);
 
   useEffect(() => {
-    // Simulate a visitor count that increases over time
-    const interval = setInterval(() => {
-      setCount(prevCount => prevCount + 1);
-    }, 30000); // Increment every 30 seconds
-
-    return () => clearInterval(interval);
+    // Check if this is a new visitor
+    const hasVisited = localStorage.getItem('hasVisited');
+    
+    if (!hasVisited) {
+      // This is a new visitor, increment the count
+      const currentCount = parseInt(localStorage.getItem('visitorCount') || '52');
+      const newCount = currentCount + 1;
+      
+      // Store the new count
+      localStorage.setItem('visitorCount', newCount.toString());
+      localStorage.setItem('hasVisited', 'true');
+      
+      setCount(newCount);
+    } else {
+      // Returning visitor, just display the current count
+      const currentCount = parseInt(localStorage.getItem('visitorCount') || '52');
+      setCount(currentCount);
+    }
   }, []);
 
   return (
