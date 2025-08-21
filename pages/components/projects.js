@@ -171,60 +171,69 @@ export default function Projects() {
     </div>
   </div>
 
-  <div className="relative flex items-center touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+  <div className="flex items-center gap-2 sm:gap-4">
     {/* Arrow Left */}
-<button
-  onClick={goToPrevSlide}
-  className="hidden sm:block absolute top-1/2 -translate-y-1/2 -left-4 sm:-left-8 lg:-left-10 xl:-left-14 z-10 bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow"
->
-  <i className="fas fa-chevron-left text-gray-700 text-lg" />
-</button>
+    <button
+      onClick={goToPrevSlide}
+      className="hidden sm:flex items-center justify-center bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+    >
+      <i className="fas fa-chevron-left text-gray-700 text-lg" />
+    </button>
 
-    {/* Cards Row: extra padding left/right to clear the arrows */}
-    <div className="flex justify-center items-stretch w-full gap-4 px-10 sm:px-16 md:px-24 lg:px-32 xl:px-40">
-      {getSlideData().map((project, idx) => (
-        <div
-          key={idx}
-          className="
-            bg-white rounded-lg shadow-lg p-4 flex-shrink-0
-            w-[90vw]    /* mobile: 90% of viewport width */
-            sm:w-[45vw] /* small tablets: 45% of vw (2 per slide) */
-            md:w-[30vw] /* desktops: 30% of vw (3 per slide) */
-          "
-        >
-          <img
-            src={project.image}
-            className="rounded-lg mb-4 mx-auto"
-            width={300}
-            height={200}
-            alt={project.title}
-          />
-          <h3 className="text-xl font-bold text-[#FFC1CB] mb-2">
-            {project.title}
-          </h3>
-          <p className="text-sm text-gray-700 mb-2">
-            {project.description}
-          </p>
-          <p className="text-sm font-bold text-[#FFC1CB] mb-4">
-            Skills: {project.skills}
-          </p>
-          <a
-            href={project.link}
-            className="mt-auto inline-block bg-[#FFC1CB] text-white px-4 py-2 rounded-full text-sm hover:bg-white hover:!text-[#FFC1CB] hover:ring-2 hover:ring-[#FFC1CB] transition duration-200 text-center"
+    {/* Cards Row */}
+    <div
+      className="relative flex-1"
+    >
+      <div
+        className="flex justify-center items-stretch w-full gap-4 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden touch-pan-y"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        {getSlideData().map((project, idx) => (
+          <div
+            key={idx}
+            className="
+              bg-white rounded-lg shadow-lg p-4 flex-shrink-0
+              w-[90vw]
+              sm:w-[45vw]
+              md:w-[30vw]
+            "
           >
-            GitHub
-          </a>
-        </div>
-      ))}
+            <img
+              src={project.image}
+              className="rounded-lg mb-4 mx-auto"
+              width={300}
+              height={200}
+              alt={project.title}
+            />
+            <h3 className="text-xl font-bold text-[#FFC1CB] mb-2">
+              {project.title}
+            </h3>
+            <p className="text-sm text-gray-700 mb-2">
+              {project.description}
+            </p>
+            <p className="text-sm font-bold text-[#FFC1CB] mb-4">
+              Skills: {project.skills}
+            </p>
+            <a
+              href={project.link}
+              className="mt-auto inline-block bg-[#FFC1CB] text-white px-4 py-2 rounded-full text-sm hover:bg-white hover:!text-[#FFC1CB] hover:ring-2 hover:ring-[#FFC1CB] transition duration-200 text-center"
+            >
+              GitHub
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
 
     {/* Arrow Right */}
-<button
-  onClick={goToNextSlide}
-  className="hidden sm:block absolute top-1/2 -translate-y-1/2 -right-4 sm:-right-8 lg:-right-10 xl:-right-14 z-10 bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow"
->
-  <i className="fas fa-chevron-right text-gray-700 text-lg" />
-</button>
+    <button
+      onClick={goToNextSlide}
+      className="hidden sm:flex items-center justify-center bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+    >
+      <i className="fas fa-chevron-right text-gray-700 text-lg" />
+    </button>
   </div>
 </section>
   );
