@@ -163,6 +163,14 @@ export default function Projects() {
   </h1>
   <h2 className="text-center text-5xl font-bold text-black mb-8 dark:text-white">Projects</h2>
 
+  {/* Mobile-only swipe message */}
+  <div className="sm:hidden flex items-center justify-center mb-6">
+    <div className="bg-[#FFC1CB] bg-opacity-20 rounded-full px-4 py-2 flex items-center space-x-2">
+      <span className="text-[#FFC1CB] text-sm font-medium">💕 Swipe to explore more projects!</span>
+      <i className="fas fa-arrow-right text-[#FFC1CB] text-sm animate-pulse"></i>
+    </div>
+  </div>
+
   <div className="relative flex items-center touch-pan-y" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
     {/* Arrow Left */}
 <button
