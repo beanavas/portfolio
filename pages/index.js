@@ -73,7 +73,7 @@ export default function Home() {
           </a>
         </section>
         {/* <WebLLMChat/> */}
-        <section id="About" className="mt-80 mb-80">
+        <section id="About" className="mt-40 mb-80">
           <About />
           <a href="#Experience" className="mt-80 mb-80 justify-center items-center">
           <button className=" px-6 py-2 bg-[#FFC1CB] text-white rounded-full hover:scale-105 transition text-center">

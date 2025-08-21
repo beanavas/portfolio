@@ -52,7 +52,7 @@ export default function About({ darkMode, toggleDarkMode }) {
             border-4 sm:border-8 border-[#FFC1CB]
           ">
             <img
-              src="/mepic.png"
+              src="/linkedinpic.jpeg"
               alt="Beatriz Navas"
               className="absolute inset-0 w-full h-full object-cover"
             />
