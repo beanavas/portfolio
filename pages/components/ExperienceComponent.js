@@ -4,7 +4,18 @@ import mepic from "../../public/mepic.png";
 
 const defaultExperiences = [
 {
-   id: 1,
+  id: 1,
+   title: "App Development Intern",
+   company: "XRCise Meet",
+   dates: "Sept 2025 - Present",
+   description:
+     "I developed and optimized cross-platform mobile application features using Vue.js, TypeScript, and JavaScript, ensuring seamless deployment across iOS and Android platforms. I designed and maintained RESTful API endpoints, Firebase integrations, and MySQL database schemas to enable secure, efficient, and real-time data synchronization between the frontend and backend. Leveraging Tailwind CSS, I collaborated with designers and frontend developers to create a consistent, responsive, and intuitive user interface and experience across all devices.",
+   image: "/xrcise.png",
+   tools: ["TypeScript", "JavaScript", "Github", "Bash", "Tailwind"],
+  
+ },
+ {
+   id: 2,
    title: "Software Engineering Intern",
    company: "DHV Technology",
    dates: "May 2025 - July 2025",
@@ -16,7 +27,7 @@ const defaultExperiences = [
  },
 
   {
-    id: 2,
+    id: 3,
     title: "Software Engineering Intern",
     company: "Biznaga Media LLC",
     dates: "Jan 2025 - May 2025",
@@ -27,7 +38,7 @@ const defaultExperiences = [
     tools: ["Python", "Machine Learning", "TensorFlow", "pandas", "scikit-learn", "Data Analytics", "Scrum"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Full-Stack Developer Intern",
     company: "Biznaga Media LLC",
     dates: "June 2024 - August 2024",
