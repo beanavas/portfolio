@@ -19,7 +19,7 @@ export default function Intro({ darkMode, toggleDarkMode }) {
 
       {/* Bio */}
       <p className="mt-4 text-sm sm:text-base md:text-lg leading-relaxed max-w-lg mx-auto text-gray-800 dark:text-gray-200">
-        A dedicated lifelong learner, deeply invested in and passionate about technology and innovation.
+        A dedicated lifelong learner, passionate about technology and innovation.
       </p>
 
       {/* Social Icons */}

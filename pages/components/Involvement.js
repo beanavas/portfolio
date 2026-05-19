@@ -12,7 +12,7 @@ const involvements = [
   {
     id: 2,
     title: "WEECS Projects Member",
-    imageUrl: "/weecs.png",
+    imageUrl: "/gp.jpeg",
     description:
       "During my involvement with WEECS (Women in Electrical Engineering & Computer Science) Projects, I developed several applications leveraging the MERN stack and machine learning techniques within student groups.",
   },

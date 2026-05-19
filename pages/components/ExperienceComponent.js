@@ -5,9 +5,20 @@ import mepic from "../../public/mepic.png";
 const defaultExperiences = [
 {
   id: 1,
+   title: "Technology Intern",
+   company: "Prudential Financial (PGIM)",
+   dates: "INCOMING! June 2026 - August 2026",
+   description:
+     "I will be working as a Technology Intern at Prudential Financial, where I will have the opportunity to contribute to innovative projects and gain hands-on experience in the financial technology industry. I am excited to collaborate with talented professionals and further develop my skills in software development, data analysis, and financial technology solutions.",
+   image: "/pgim.png",
+   tools: [],
+  
+ },
+{
+  id: 2,
    title: "App Development Intern",
    company: "XRCise Meet",
-   dates: "Sept 2025 - Present",
+   dates: "Sept 2025 - May 2026",
    description:
      "I developed and optimized cross-platform mobile application features using Vue.js, TypeScript, and JavaScript, ensuring seamless deployment across iOS and Android platforms. I designed and maintained RESTful API endpoints, Firebase integrations, and MySQL database schemas to enable secure, efficient, and real-time data synchronization between the frontend and backend. Leveraging Tailwind CSS, I collaborated with designers and frontend developers to create a consistent, responsive, and intuitive user interface and experience across all devices.",
    image: "/xrcise.png",
@@ -15,7 +26,7 @@ const defaultExperiences = [
   
  },
  {
-   id: 2,
+   id: 3,
    title: "Software Engineering Intern",
    company: "DHV Technology",
    dates: "May 2025 - July 2025",
@@ -27,25 +38,25 @@ const defaultExperiences = [
  },
 
   {
-    id: 3,
+    id: 4,
     title: "Software Engineering Intern",
     company: "Biznaga Media LLC",
     dates: "Jan 2025 - May 2025",
     description:
       "I engineered a Python-based machine learning pipeline using TensorFlow, pandas, and scikit-learn to process and analyze campaign spreadsheets for over 50 marketing initiatives, delivering actionable insights and recommendations while implementing DevOps best practices. Working within a Scrum team, I helped automate the generation of branded PowerPoint presentations using python-pptx, producing more than 200 professional slide decks that included Matplotlib charts of CTR, conversion rate, and ROI—cutting manual report creation time by 75%. Additionally, I integrated an insight summarizer that highlighted the top three performing channels, detected performance anomalies, and generated actionable recommendations, which accelerated campaign optimization decisions by 15%.",
     image:
-      "/biznagapic.png",
+      "/biznaga.png",
     tools: ["Python", "Machine Learning", "TensorFlow", "pandas", "scikit-learn", "Data Analytics", "Scrum"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Full-Stack Developer Intern",
     company: "Biznaga Media LLC",
     dates: "June 2024 - August 2024",
     description:
       "I designed and built full-stack web application components using React.js, Node.js, Express.js, and PostgreSQL in an Agile environment, delivering over 10 features that improved scalability, stability, and responsiveness. I optimized full-stack codebases to ensure consistent, high-performance operation across more than five mobile device form factors. Additionally, I collaborated with a cross-functional team of three to refine and evaluate over 20 component proposals, assessing technical feasibility, estimating development effort, and expediting project kickoffs.",
     image:
-      "/biznagapic.png",
+      "/biznaga.png",
     tools: ["React", "Node.js", "Express", "PostgreSQL", "Scrum", "Full-Stack"],
   },
 ];

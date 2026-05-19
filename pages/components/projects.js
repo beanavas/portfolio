@@ -9,14 +9,30 @@ const projectsData = [
     description:
       "I developed a personal portfolio website to showcase my projects, technical skills, and professional experiences. Built with Next.js and styled using Tailwind CSS, the site emphasizes performance, responsiveness, and clean design across desktop and mobile devices. I integrated interactive components such as a horizontally scrollable project carousel and dynamic involvement sections.",
     skills: "Next.js, Tailwind, CSS, HTML, JavaScript",
-    link: "https://github.com/beanavas/Gym-Buddy",
+    link: "https://github.com/beanavas/portfolio",
   },
   {
-    title: "Gym Buddy ",
+    title: "AI Powered Wardrobe",
+    image: "/wardrobe.png",
+    description:
+      "As Backend Team Lead for the Digital Wardrobe project, I led the development of scalable RESTful APIs using Node.js, Express, and MongoDB to manage user accounts and clothing data, while also integrating the backend with a machine learning server for image processing and clothing classification. This integration enabled automatic tagging and organization of wardrobe items.",
+    skills: "Node.js, ML integration, Express, MongoDB, RESTful API design",
+    link: "https://github.com/mariamauco/Spr26DigitalWardrobe",
+  },
+  {
+    title: "Gym Buddy",
     image: "/gymbuddy copy.png",
     description:
-      "A full-stack fitness tracker built with the MERN stack that lets users log workouts through structured forms or natural language input. It uses machine learning and NLP to parse entries like “Did 3 sets of squats with 100 lbs,” provides visual insights with heatmaps and pie charts, and recommends exercises based on muscle imbalances using ML.",
+      "A full-stack, AI fitness tracker built with the MERN stack that lets users log workouts through structured forms or natural language input. It uses machine learning and NLP to parse entries like “Did 3 sets of squats with 100 lbs,” provides visual insights with heatmaps and pie charts, and recommends exercises based on muscle imbalances using ML.",
     skills: "MERN stack, NLP, ML, MongoDB, Express, React, Node.js, Python",
+    link: "https://github.com/beanavas/Gym-Buddy",
+  },
+    {
+    title: "Ultrasonic Distance Sensor",
+    image: "/pfr.jpeg",
+    description:
+      "I designed and fabricated an ultrasonic distance sensor PCB focused on reliable embedded system performance, including dedicated voltage regulation and over-current protection circuitry. Using bare-metal C, I implemented firmware to measure ultrasonic echo timing and developed low-level drivers for GPIO, pin multiplexing, ADC reads, and fault handling. ",
+    skills: "C, Embedded Programming, Firmware, UART, I2C, Telemetry, PCB Design",
     link: "https://github.com/beanavas/Gym-Buddy",
   },
   {

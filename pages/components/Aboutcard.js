@@ -11,8 +11,8 @@ export default function Aboutcard ({ darkMode, toggleDarkMode }){
           <p style={{ textAlign: "justify" }}>
             Hello! My name is Beatriz Navas and I am a student at the University of Central Florida, Go Knights!
             <br /> <br />
-            Being a computer engineering student has allowed me to dive into a wide range of areas, from embedded software to full stack development.
-            <br />
+            My studies & internships have given me hands-on experience in automation, machine learning,
+            embedded programming, and full-stack development.            <br />
             <br />
             I spend most of my free time learning new programming languages, frameworks, and tools, as well as contributing to exciting, open-source projects!
             <br />

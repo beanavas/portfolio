@@ -19,14 +19,14 @@ export default function About({ darkMode, toggleDarkMode }) {
               Beatriz Navas
             </span>
             , and I’m a Computer Engineering student at the University of Central
-            Florida. Go Knights — Charge On!
+            Florida. Go Knights - Charge On!
           </p>
           <p className="text-base sm:text-lg text-gray-700 dark:text-gray-200">
-            My studies have given me hands-on experience in hardware, embedded
-            systems, design, and full-stack development.
+            My studies & internships have given me hands-on experience in automation, machine learning,
+            embedded programming, and full-stack development.
           </p>
           <p className="text-base sm:text-lg text-gray-700 dark:text-gray-200">
-            In my free time I love learning new frameworks, contributing to
+            In my free time I love learning about new tech, contributing to
             open-source, and also…
           </p>
 
@@ -52,7 +52,7 @@ export default function About({ darkMode, toggleDarkMode }) {
             border-4 sm:border-8 border-[#FFC1CB]
           ">
             <img
-              src="/linkedinpic.jpeg"
+              src="/headshot26.png"
               alt="Beatriz Navas"
               className="absolute inset-0 w-full h-full object-cover"
             />
